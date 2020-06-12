@@ -33,9 +33,8 @@ public class Pokemon {
             joinColumns = @JoinColumn(name = "id_pokemon"),
             inverseJoinColumns = @JoinColumn(name = "id_tipo")
     )
-    private Ligit push -u origin masterst<Tipo> tipos;
-
     @Nullable
+    private List<Tipo> tipos;
     public PokemonReduced getProximo() {
         if (proximo != null){
             return new PokemonReduced(proximo.getNumeroDex(), proximo.getNome());
