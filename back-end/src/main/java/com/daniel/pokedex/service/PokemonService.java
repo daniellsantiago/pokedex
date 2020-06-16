@@ -17,9 +17,7 @@ public class PokemonService {
     private final TipoRepository tipoRepository;
 
     public List<Pokemon> findAll() {
-
-        List<Pokemon> aa = pokemonRepository.findAll();
-        return aa;
+        return pokemonRepository.findAll();
     }
 
     public List<Pokemon> findByTipo(String tipo){

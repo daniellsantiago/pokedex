@@ -148,3 +148,8 @@ section {
 .nomePokemon {
     text-align: left;
 }
+
+#tipos > span{
+    margin-left: 2px;
+    margin-right: 2px;
+}

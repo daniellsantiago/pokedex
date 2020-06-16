@@ -3,6 +3,7 @@ class App {
         this.api = axios.create({baseURL: 'http://localhost:8080/api'});
         this.pokemons = [];
         this.tipos = [];
+        this.urlImg = "../assets/imgs/pokes/";
 
         this.setData();
         this.setHandlers();
@@ -34,22 +35,58 @@ class App {
         const list = this.pokemonFilter();
 
         if(list.length === 0) {
-            pokemonsTr =`<tr>
+            pokemonsTr =`<tr">
                             <td colspan="2" style="text-align:center;">
                                 SEM REGISTROS
                             </td>
                         </tr>`;
         } else {
             list.forEach(pokemon => {
-                pokemonsTr += `<tr>
+                pokemonsTr += `<tr onclick=app.pokemonDetail(this) key = "${pokemon.numeroDex}">
                                     <td>#${pokemon.numeroDex}</td>
                                     <td class = 'nomePokemon'>${pokemon.nome}</td>
                                 </tr>`;
             });
         }
         tbody.innerHTML  = pokemonsTr;
+        this.setHandlers();
     }
+    pokemonDetail(tr) {
+        document.querySelectorAll("tr").forEach(tr => tr.classList.remove("pokemonSelecionado"));
+        tr.classList.add("pokemonSelecionado");
 
+        const numeroDex = tr.getAttribute("key");
+        const pokemon = this.pokemons.find(pokemon => pokemon.numeroDex == numeroDex);
+        const {
+            nome,
+            img,
+            descricao,
+            anterior,
+            proximo,
+            tipos
+        } = pokemon;
+        
+        const titulo = `${nome} - #${numeroDex}`;
+        const pokemonAnterior = anterior ? anterior.nome : "NENHUM";
+        const pokemonProximo = proximo ? proximo.nome : "NENHUM";
+        let tipoSpan = '';
+        tipos.forEach(tipo => {
+            const cor = tipo.cor ? `background-color: ${tipo.cor};` : '';
+            const textCor = tipo.textCor ? `color: ${tipo.textCor};` : '';
+            const style = `style="${cor} ${textCor}"`
+            console.log(textCor);
+            tipoSpan += `<span key = "${tipo.id}" ${style}>
+                            ${tipo.nome}
+                         </span>`;
+        });
+
+        document.querySelector("#titulo").innerText = titulo;
+        document.querySelector("#imagem > img").src = this.urlImg + img;
+        document.querySelector("#descricao").innerText = descricao;
+        document.querySelector("#tipos").innerHTML = tipoSpan;
+        document.querySelector("#evoluiDe > span").innerText = pokemonAnterior;
+        document.querySelector("#evoluiPara > span").innerText = pokemonProximo;
+    }
     async setData() {
         try {
             let response = await this.api.get('/pokemon');
@@ -87,4 +124,4 @@ class App {
         return list;
     }
 }
-new App();
+app = new App();

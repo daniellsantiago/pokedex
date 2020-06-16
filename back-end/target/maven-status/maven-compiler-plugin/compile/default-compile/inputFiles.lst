@@ -1,0 +1,10 @@
+/home/santi/Projects/pokedex/back-end/src/main/java/com/daniel/pokedex/repository/TipoRepository.java
+/home/santi/Projects/pokedex/back-end/src/main/java/com/daniel/pokedex/domain/Tipo.java
+/home/santi/Projects/pokedex/back-end/src/main/java/com/daniel/pokedex/domain/Pokemon.java
+/home/santi/Projects/pokedex/back-end/src/main/java/com/daniel/pokedex/service/TipoService.java
+/home/santi/Projects/pokedex/back-end/src/main/java/com/daniel/pokedex/service/PokemonService.java
+/home/santi/Projects/pokedex/back-end/src/main/java/com/daniel/pokedex/repository/PokemonRepository.java
+/home/santi/Projects/pokedex/back-end/src/main/java/com/daniel/pokedex/PokedexApplication.java
+/home/santi/Projects/pokedex/back-end/src/main/java/com/daniel/pokedex/util/PokemonReduced.java
+/home/santi/Projects/pokedex/back-end/src/main/java/com/daniel/pokedex/controller/PokemonController.java
+/home/santi/Projects/pokedex/back-end/src/main/java/com/daniel/pokedex/controller/TiposController.java

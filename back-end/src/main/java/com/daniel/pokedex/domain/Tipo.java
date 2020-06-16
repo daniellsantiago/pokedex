@@ -16,4 +16,7 @@ public class Tipo {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String nome;
+    private String cor;
+    @Column(name = "textCor")
+    private String textCor;
 }
